@@ -11,6 +11,11 @@ def home(request):
     return HttpResponse("Hello world!")
 
 
+def count_entries(request):
+    count = Test.objects.count()
+    return HttpResponse(f"Db count: {count}")
+
+
 @csrf_exempt
 def add_test_entry(request):
     if request.method == 'POST':
